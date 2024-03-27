@@ -15,6 +15,9 @@ pipeline {
         }
         stage('Test') {
             steps {
+                // Install dependencies before running tests
+                sh 'pip install -r requirements.txt'
+                // Run pytest
                 sh 'python3 -m pytest'
             }
         }
